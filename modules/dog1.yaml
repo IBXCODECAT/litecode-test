@@ -34,3 +34,7 @@ instances:
     icon: "🧩"
     file_name: _play
     next_page: dog1
+
+  - !Text
+    title: "It changed!"
+    border: False
