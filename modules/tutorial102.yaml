@@ -23,7 +23,7 @@ classes:
 instances:
 
   - !Scene
-    title: "Tutorial 102"
+    title: "Tutorial 102 Lol"
     icon: "💡"
     # lines: [2, 2, 1, 2, 1, 1, 2, 2, 1, 2, 2, 2, 2, 2]
     as_name: scene
