@@ -1,0 +1,194 @@
+module:
+  - name: tasksystem
+    doc: |
+      Manage your tasks effectively.
+      Stay organized and boost productivity!
+    icon: "📋"
+    tag: "Productivity"
+
+imports:
+  - !Module {name: kore, hidden: True}
+  - !Module {name: blocks, hidden: True}
+  - !Module {name: inspectors, hidden: True}
+
+classes:
+  # forward declarations:
+  - !Class {name: User}
+  - !Class {name: Task}
+
+  - !Class
+    name: User
+    doc: Represents a user in the system
+    icon: '👤'
+    bases: [kore.Object]
+    attributes:
+    - !Attribute
+      name: username
+      type: str
+      icon: "🆔"
+      default: anon_user
+    - !Attribute
+      name: email
+      type: str
+      icon: "✉️"
+      default: ""
+    - !Attribute
+      name: active
+      type: bool
+      icon: "🟢"
+      default: True
+      read_only: True
+    methods:
+    - !Method
+      name: __repr__
+      doc: String representation of the user
+      code: |
+        return f"{self.icon} {self.username}"
+
+  - !Class
+    name: Task
+    doc: Represents a single task
+    icon: '📝'
+    bases: [kore.Object]
+    attributes:
+    - !Attribute
+      name: task_id
+      type: str
+      icon: "🔢"
+    - !Attribute
+      name: title
+      type: str
+      icon: "🏷️"
+      default: New Task
+    - !Attribute
+      name: description
+      type: str
+      icon: "📄"
+      default: ""
+    - !Attribute
+      name: assignee
+      type: User # Reference to a User object
+      icon: "🧑‍💼"
+    - !Attribute
+      name: priority
+      type: str # Could be an enum: 'low', 'medium', 'high'
+      icon: "⚠️"
+      default: medium
+    - !Attribute
+      name: due_date
+      type: str # ISO date format e.g., YYYY-MM-DD
+      icon: "📅"
+    states: ['todo', 'in_progress', 'review', 'done', 'archived']
+    methods:
+    - !Method
+      name: start_progress
+      doc: Mark the task as in progress
+      preconditions: ['todo']
+      postcondition: in_progress
+      code: |
+        # Logic to update task status
+        # self.state = 'in_progress' # Transition happens automatically
+        print(f"Task '{self.title}' started by {self.assignee.username if self.assignee else 'unassigned'}.")
+
+    - !Method
+      name: complete_task
+      doc: Mark the task as done
+      preconditions: ['in_progress', 'review']
+      postcondition: done
+      code: |
+        # Logic to update task status
+        # self.state = 'done' # Transition happens automatically
+        print(f"Task '{self.title}' completed.")
+
+    - !Method
+      name: archive_task
+      doc: Archive the task
+      preconditions: ['done', 'todo'] # Can archive if done or if it was never started
+      postcondition: archived
+      code: |
+        # self.state = 'archived' # Transition happens automatically
+        print(f"Task '{self.title}' archived.")
+
+    - !Method
+      name: __repr__
+      doc: String representation of the task
+      code: |
+        assignee_name = self.assignee.username if self.assignee else "N/A"
+        due = self.due_date if self.due_date else "N/A"
+        return f"{self.icon} {self.title} ({self.state}) - Due: {due}, Assignee: {assignee_name}"
+
+instances:
+  - !Scene
+    icon: 🚀
+    as_name: task_dashboard
+    title: My Tasks Overview
+    lines: # Defines layout rows and columns, simplified here
+    - 4 # User info
+    - 1 # Project/Context selector (conceptual)
+    - 3 # Task list area
+    - 2 # Task details area
+    - 2 # Actions area
+
+  - !User &user_alice
+    username: alice_g
+    email: alice.g@example.com
+
+  - !User &user_bob
+    username: bob_w
+    email: bob.w@example.com
+    active: False # Example of overriding default
+
+  - !Task &task_report
+    task_id: TSK-001
+    title: "Prepare Q3 Financial Report"
+    description: "Compile all financial data and draft the quarterly report for Q3."
+    assignee: *user_alice
+    priority: high
+    due_date: "2025-07-15"
+    # Initial state is 'todo' by default if not specified and 'todo' is the first in states list
+
+  - !Task &task_design
+    task_id: TSK-002
+    title: "Design New Homepage Mockup"
+    description: "Create three design mockups for the new company homepage."
+    assignee: *user_bob
+    priority: medium
+    due_date: "2025-08-01"
+    # state: 'in_progress' # Example: if you wanted to set it explicitly
+
+  - !Task &task_meeting
+    task_id: TSK-003
+    title: "Schedule Project Kick-off Meeting"
+    description: "Organize a meeting with all stakeholders for the new Alpha project."
+    # No assignee initially
+    priority: medium
+    due_date: "2025-06-10"
+
+  - !Inspector
+    title: Alice (User)
+    source: *user_alice
+
+  - !Inspector
+    title: Bob (User) - Inactive
+    source: *user_bob
+
+  - !Inspector
+    title: Financial Report Task
+    source: *task_report
+
+  - !Inspector
+    title: Homepage Design Task
+    source: *task_design
+
+  - !Class &project_class # Example of another class, not fully fleshed out
+    name: Project
+    doc: Represents a collection of tasks
+    icon: '📁'
+    attributes:
+    - !Attribute {name: project_name, type: str}
+    - !Attribute {name: project_lead, type: User}
+
+  - !Inspector # Inspector for the class definition itself
+    title: Task Class Definition
+    source: !Class Task # Referring to the class 'Task'
+

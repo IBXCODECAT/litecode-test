@@ -22,6 +22,12 @@ instances:
     border: False
 
   - !Page
+    title: Learning
+    border: False
+    icon: "🔭"
+    next_page: learning
+    
+  - !Page
     title: Tutorial 1o1
     border: False
     icon: "👨🏻‍🏫"
@@ -31,11 +37,6 @@ instances:
     title: Tutorial102
     border: False
     next_page: tutorial102
-
-  - !Page
-    title: Drinks
-    border: False
-    next_page: drinks
     
   - !Page
     title: Dog1
