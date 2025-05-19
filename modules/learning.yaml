@@ -1,5 +1,5 @@
 module:
-  - name: tasksystem
+  - name: learning
     doc: |
       Manage your tasks effectively.
       Stay organized and boost productivity!
