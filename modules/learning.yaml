@@ -107,7 +107,7 @@ classes:
       postcondition: archived
       code: |
         # self.state = 'archived' # Transition happens automatically
-        print(f"Task '{self.title}' archived.")
+        print(f"Task {self.title} archived.")
 
     - !Method
       name: __repr__
@@ -179,6 +179,7 @@ instances:
   - !Inspector
     title: Homepage Design Task
     source: *task_design
+aaa:
 
   - !Class &project_class # Example of another class, not fully fleshed out
     name: Project
