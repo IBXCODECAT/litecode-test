@@ -43,3 +43,10 @@ instances:
     border: False
     icon: "🧩"
     next_page: dog1
+
+  - !Page
+    title: Menu
+    border: False
+    icon: "📋"    
+    next_page: menu
+    
