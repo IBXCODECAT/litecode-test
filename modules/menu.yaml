@@ -26,6 +26,12 @@ instances:
     border: False
     icon: "🔭"
     next_page: learning
+
+  - !Page
+    title: Sip
+    border: False
+    icon: ""
+    next_page: swift_sip
     
   - !Page
     title: Tutorial 1o1
