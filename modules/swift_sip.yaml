@@ -132,7 +132,7 @@ instances:
   - !Text
     title: Meet Emma
     icon: 🥋
-    media: emma.jpg
+    media: arch.jpg
     height: 500
     footer: |
       💡 *Design Tip*: For Emma, less is more. Keep it simple, fast, and efficient.
