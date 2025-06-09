@@ -55,4 +55,10 @@ instances:
     border: False
     icon: "📋"    
     next_page: menu
+
+  - !Page
+    title: TEF
+    border: False
+    icon: ""
+    next_page: tef_irn
     
