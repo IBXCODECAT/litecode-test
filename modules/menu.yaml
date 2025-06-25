@@ -22,6 +22,12 @@ instances:
     border: False
 
   - !Page
+    title: Riddle
+    border: False
+    icon: " "
+    next_page: riddle_example
+    
+  - !Page
     title: Learning
     border: False
     icon: "🔭"
