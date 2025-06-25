@@ -1,5 +1,5 @@
 module:
-  - name: tef_irn
+  - name: riddle-example
     doc: "Test d'Evaulation de Français - IRN"
     icon: "🇫🇷"
 
