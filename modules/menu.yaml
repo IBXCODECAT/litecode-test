@@ -25,7 +25,7 @@ instances:
     title: Riddle
     border: False
     icon: " "
-    next_page: riddle_example
+    next_page: riddle-example
     
   - !Page
     title: Learning
