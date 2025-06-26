@@ -1,0 +1,197 @@
+module:
+  - name: riddles-test
+    doc: "Code Evaluation Riddles"
+    icon: "💻"
+
+imports:
+  - !Module
+    name: designers
+    hidden: True
+  - !Module
+    name: blocks
+    hidden: True
+  - !Module
+    name: inspectors
+    hidden: True
+  - !Module
+    name: tutorials
+    hidden: False
+
+classes:
+
+instances:
+
+  - !Riddle &riddleCode_01
+    title: "Basic Syntax: Variable Assignment"
+    text: |
+      What is the correct way to assign the value 10 to a variable named 'x' in Python?
+    correct_answer: "x = 10"
+    difficulty: 1
+    as_name: riddleCode_01
+    options:
+      - "10 = x"
+      - "x := 10"
+      - "x = 10"
+    hints: [ "Think about assignment operators", "Variable name comes first", "Common in many programming languages" ]
+
+  - !Riddle &riddleCode_02
+    title: "Conditional Logic: If Statement"
+    text: |
+      You want to execute a block of code only if a variable 'temperature' is greater than 25. Which of these is the correct syntax in Python?
+    correct_answer: "if temperature > 25:"
+    difficulty: 1
+    as_name: riddleCode_02
+    options:
+      - "if temperature is > 25"
+      - "if (temperature > 25)"
+      - "if temperature > 25:"
+    hints: [ "Don't forget the colon", "No parentheses needed in basic if statements", "This is a common control flow structure" ]
+
+  - !Riddle &riddleCode_03
+    title: "Function Definition"
+    text: |
+      How do you define a function named 'greet' that takes no arguments in Python?
+    correct_answer: "def greet():"
+    difficulty: 1
+    as_name: riddleCode_03
+    options:
+      - "function greet()"
+      - "define greet():"
+      - "def greet():"
+    hints: [ "The keyword 'def' is essential", "Parentheses are needed even for no arguments", "Remember the colon at the end" ]
+
+  - !Riddle &riddleCode_04
+    title: "List Indexing"
+    text: |
+      Given a list `my_list = [10, 20, 30]`, how do you access the second element (value 20)?
+    correct_answer: "my_list[1]"
+    difficulty: 1
+    as_name: riddleCode_04
+    options:
+      - "my_list[2]"
+      - "my_list.get(1)"
+      - "my_list[1]"
+    hints: [ "Remember that indexing starts from zero", "Count from the beginning of the list", "Square brackets are used for indexing" ]
+
+  - !Riddle &riddleCode_05
+    title: "Looping: For Loop"
+    text: |
+      You want to iterate through a list called `items`. Which is the correct way to start a 'for' loop in Python?
+    correct_answer: "for item in items:"
+    difficulty: 1
+    as_name: riddleCode_05
+    options:
+      - "for items in item:"
+      - "loop item in items:"
+      - "for item in items:"
+    hints: [ "The 'in' keyword is crucial", "Think about what each iteration represents", "Don't forget the colon" ]
+
+  - !Riddle &riddleCode_06
+    title: "String Concatenation"
+    text: |
+      How do you combine two strings, 'Hello' and 'World', into a single string 'HelloWorld' in Python?
+    correct_answer: "'Hello' + 'World'"
+    difficulty: 2
+    as_name: riddleCode_06
+    options:
+      - "'Hello' . 'World'"
+      - "concat('Hello', 'World')"
+      - "'Hello' + 'World'"
+    hints: [ "The plus sign is commonly used for this", "Think about basic arithmetic operators", "This is a fundamental string operation" ]
+
+  - !Riddle &riddleCode_07
+    title: "Commenting Code"
+    text: |
+      What character is used to start a single-line comment in Python?
+    correct_answer: "#"
+    difficulty: 2
+    as_name: riddleCode_07
+    options:
+      - "//"
+      - "--"
+      - "#"
+    hints: [ "This character makes the line unexecutable", "It's used for explanations within the code", "Very common in scripting languages" ]
+
+  - !Riddle &riddleCode_08
+    title: "Data Type: Integer"
+    text: |
+      What is the correct term for a whole number (e.g., 5, -10, 0) in programming?
+    correct_answer: "Integer"
+    difficulty: 1
+    as_name: riddleCode_08
+    options:
+      - "Float"
+      - "String"
+      - "Integer"
+    hints: [ "It's a numerical data type", "Does not have decimal points", "Often abbreviated as 'int'" ]
+
+  - !Riddle &riddleCode_09
+    title: "Importing Modules"
+    text: |
+      How do you import a module named 'math' in Python to use its functions?
+    correct_answer: "import math"
+    difficulty: 2
+    as_name: riddleCode_09
+    options:
+      - "include math"
+      - "use math"
+      - "import math"
+    hints: [ "The keyword 'import' is used", "This makes external code available", "Essential for larger projects" ]
+
+  - !Riddle &riddleCode_10
+    title: "Comparison Operator"
+    text: |
+      Which operator is used to check if two values are equal in Python?
+    correct_answer: "=="
+    difficulty: 1
+    as_name: riddleCode_10
+    options:
+      - "="
+      - "==="
+      - "=="
+    hints: [ "It's not for assignment", "It checks for equivalence", "Often used in 'if' statements" ]
+
+  - !Riddle &riddleCode_11
+    title: "Error Type: Syntax Error"
+    text: |
+      If you forget a colon at the end of an 'if' statement in Python, what type of error will you most likely get?
+    correct_answer: "SyntaxError"
+    difficulty: 1
+    as_name: riddleCode_11
+    options:
+      - "TypeError"
+      - "NameError"
+      - "SyntaxError"
+    hints: [ "This error means your code isn't correctly formed", "It's about the grammar of the language", "The interpreter can't understand what you mean" ]
+
+  - !Riddle &riddleCode_12
+    title: "Boolean Values"
+    text: |
+      What are the two possible values of a Boolean data type in programming?
+    correct_answer: "True and False"
+    difficulty: 1
+    as_name: riddleCode_12
+    options:
+      - "Yes and No"
+      - "0 and 1"
+      - "True and False"
+    hints: [ "They represent truth or falsehood", "Often used in conditional statements", "Capitalization is important in Python" ]
+
+
+  - !Table &katas_table
+    title: Code Riddles
+    source: [*riddleCode_01, *riddleCode_02, *riddleCode_03, *riddleCode_04, *riddleCode_05, *riddleCode_06, *riddleCode_07, *riddleCode_08, *riddleCode_09, *riddleCode_10, *riddleCode_11, *riddleCode_12]
+
+
+  - !Inspector
+    title: Problem
+    subjects: [*katas_table]
+    attributes: [text, hints, answer]
+    methods: [check_answer]
+    border: True
+    on_init:
+      - !Function
+        code: |
+          self._hidden = (len(self.subjects[0].source) == 0) or (self.subjects[0].selection is None)
+          if not self._hidden:
+            self.source = self.subjects[0].selection
