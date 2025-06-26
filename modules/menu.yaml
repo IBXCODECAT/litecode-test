@@ -26,6 +26,12 @@ instances:
     border: False
     icon: " "
     next_page: riddle-example
+
+  - !Page
+    title: Riddles2
+    border: True
+    icon: " "
+    next_page: riddles-test
     
   - !Page
     title: Learning
