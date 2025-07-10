@@ -18,9 +18,37 @@ imports:
     hidden: False
 
 classes:
+  - !Class
+    name: Discord
+    doc: Discord Social Widget
+    icon: '☕'
+    bases: [blocks.Text]
+    attributes:
+    - !Attribute
+      name: channel_id
+      type: str
+      icon: "🔤"
+      default: Unknown
+    - !Attribute
+      name: theme
+      type: str
+      default: 'dark'
+    methods:
+    - !Method
+      name: build
+      doc: Book a beverage
+      code: |
+        self._show_title()
+        self._show_text()
+        self.media = f"https://discord.com/widget?id={self.channel_id}&theme={self.theme}"
+        self._show_media()
+        return True
 
 instances:
 
+  - !Discord
+    channel_id: "1384192291245129810"
+    
   - !Riddle &riddleCode_01
     title: "Basic Syntax: Variable Assignment"
     text: |
