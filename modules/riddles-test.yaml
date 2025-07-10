@@ -184,6 +184,7 @@ instances:
 
   - !Text
     title: Discord Widget
+    media: "https://discord.com/widget?id=1384192291245129810&theme=dark"
     on_init:
       - !Function
         code: |
