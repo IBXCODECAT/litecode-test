@@ -36,7 +36,7 @@ classes:
     methods:
     - !Method
       name: build
-      doc: Book a beverage
+      doc: build the widget
       code: |
         self._show_title()
         self._show_text()
